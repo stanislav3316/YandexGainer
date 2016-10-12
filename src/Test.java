@@ -9,10 +9,10 @@ import java.util.Map;
  */
 public class Test {
     public static void main(String[] args) throws Exception {
-        new Test().sendGet();
+        System.out.println(new Test().sendGet());
     }
 
-    private void sendGet() throws Exception {
+    private String sendGet() throws Exception {
         String url = "https://yandex.ru/";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -28,11 +28,15 @@ public class Test {
         }
 
         int responseCode = con.getResponseCode();
-        System.out.println("request code = " + responseCode);
+        StringBuilder builder = new StringBuilder();
 
+        builder.append("response code : " + responseCode + "\n");
         Map<String, List<String>> responseHeader =  con.getHeaderFields();
         for (Map.Entry<String, List<String>> entry : responseHeader.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+            builder.append(entry.getKey() + " : " + entry.getValue());
+            builder.append("\n");
         }
+
+        return builder.toString();
     }
 }
