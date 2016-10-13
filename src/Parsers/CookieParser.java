@@ -4,18 +4,10 @@ package Parsers;
  * Created by iters on 10/13/16.
  */
 public class CookieParser {
-
-    public static String getYandexuid(String request) {
+    public static String getElementFromRespons(String request, String element) {
         String res = "";
-        res = request.substring(request.indexOf("yandexuid") + "yandexuid".length() + 1,
-                request.indexOf(";"));
-        return res;
-    }
-
-    public static String getYandex_gid(String request) {
-        String res = "";
-        int pos = request.indexOf("yandex_gid");
-        res = request.substring(pos + "yandex_gid".length() + 1,
+        int pos = request.indexOf(element);
+        res = request.substring(pos + element.length() + 1,
                 request.indexOf(";", pos));
         return res;
     }
