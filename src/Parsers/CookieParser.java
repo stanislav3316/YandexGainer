@@ -11,13 +11,4 @@ public class CookieParser {
                 request.indexOf(";", pos));
         return res;
     }
-
-    public static String getYp(String request) {
-        String res = "";
-        int pos = request.indexOf("yp");
-        res = request.substring(pos + "yp".length() + 1,
-                request.indexOf(";", pos));
-        return res;
-    }
-
 }

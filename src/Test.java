@@ -42,7 +42,23 @@ public class Test {
         new Test();
     }
 
-    private String getRespondViaHttpUrlConnection(String url, String filePath, String field) throws Exception {
+    public String getRespondViaHttpUrlConnection(String url, String filePath) {
+        try {
+            return getRespondViaHttpUrlConnectionInner(url, filePath, "");
+        } catch (Exception e) {
+            throw new RuntimeException("getRespondViaHttpUrlConnection Error withouw field");
+        }
+    }
+
+    public String getRespondViaHttpUrlConnection(String url, String filePath, String field) {
+        try {
+            return getRespondViaHttpUrlConnectionInner(url, filePath, field);
+        } catch (Exception e) {
+            throw new RuntimeException("getRespondViaHttpUrlConnection Error with fiels");
+        }
+    }
+
+    private String getRespondViaHttpUrlConnectionInner(String url, String filePath, String field) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -67,7 +83,7 @@ public class Test {
         }
     }
 
-    private String getRespondViaSockets(String url, String filePath) throws IOException {
+    public  String getRespondViaSockets(String url, String filePath) throws IOException {
         Socket socket = new Socket(InetAddress.getByName(url), 80);
         BufferedReader fileReader = new BufferedReader(new FileReader(filePath));
         BufferedWriter sendTo = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"));
