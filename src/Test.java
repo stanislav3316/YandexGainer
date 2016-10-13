@@ -36,12 +36,6 @@ public class Test {
         yp = CookieParser.getElementFromRespons(request, "yp");
         fuid01 = CookieParser.getElementFromRespons(fuidRequest, "fuid01");
         yabsFrequency = CookieParser.getElementFromRespons(yabsRequest, "yabs-frequency");
-
-        System.out.println(yandex_gid);
-        System.out.println(yandex_uid);
-        System.out.println(yp);
-        System.out.println(fuid01);
-        System.out.println(yabsFrequency);
     }
 
     public static void main(String[] args) throws Exception {
