@@ -7,6 +7,7 @@ import java.io.IOException;
  */
 public class Test {
     public static void main(String[] args) throws IOException {
+        System.out.println("<div class=\"a11y-hidden\">1</div>");
         System.out.println(new YandexSearch().getSearchResult("hello my name is Stanislav"));
     }
 }
