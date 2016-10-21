@@ -11,7 +11,7 @@ import java.net.URL;
 public class Test {
     public static void main(String[] args) throws IOException {
         UrlParser parser = new UrlParser();
-        String search = new YandexSearch().getSearchResult("фильмы");
+        String search = new YandexSearch().getSearchResult("привет");
         PrintWriter pw = new PrintWriter("out.txt");
         for (int i = 1; i < 10; i++) {
             pw.write(String.valueOf(parser.getLink(search, i)) + "\n\n");
